@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+
+model User {
+  id        Int       @id @default(autoincrement())
+  fullName  String    @db.VarChar(100)
+  email     String    @unique @db.VarChar(100)
+  password  String    @db.VarChar(200)
+  role      String    @default("USER") @db.VarChar(20)
+  phone     String?   @db.VarChar(20)
+
+  bookings  Booking[]
+}
+
+model RoomType {
+  id          Int       @id @default(autoincrement())
+  name        String    @db.VarChar(50)
+  description String?
+  basePrice   Decimal   @db.Decimal(10, 2)
+
+  rooms       Room[]
+}
+
+model Room {
+  id           Int       @id @default(autoincrement())
+  roomNumber   String    @unique @db.VarChar(20)
+  capacity     Int
+  status       String    @default("AVAILABLE") @db.VarChar(20)
+
+  roomTypeId   Int
+  roomType     RoomType  @relation(fields: [roomTypeId], references: [id])
+
+  bookings     Booking[]
+}
+
+model Booking {
+  id          Int       @id @default(autoincrement())
+  checkIn     DateTime
+  checkOut    DateTime
+  totalPrice  Decimal   @db.Decimal(10, 2)
+  status      String    @default("PENDING") @db.VarChar(20)
+
+  userId      Int
+  roomId      Int
+
+  user        User      @relation(fields: [userId], references: [id])
+  room        Room      @relation(fields: [roomId], references: [id])
+
+  createdAt   DateTime  @default(now())
+}
