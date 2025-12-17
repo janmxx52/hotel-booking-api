@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Xác nhận đặt phòng</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="nav">
+    <button onclick="location.href='search.html'">⬅ Quay lại tìm phòng</button>
+    <button onclick="logout()">Đăng xuất</button>
+  </div>
+
+  <h2>🛏️ Xác nhận đặt phòng</h2>
+
+  <p><b>Số phòng:</b> <span id="roomNumber"></span></p>
+  <p><b>Loại phòng:</b> <span id="roomType"></span></p>
+  <p><b>Ngày nhận:</b> <span id="showCheckIn"></span></p>
+  <p><b>Ngày trả:</b> <span id="showCheckOut"></span></p>
+
+  <button onclick="bookRoom()">✅ Xác nhận đặt phòng</button>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/booking.js"></script>
+</body>
+</html>

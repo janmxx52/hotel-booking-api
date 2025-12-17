@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - Quản lý phòng</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="nav">
+    <button onclick="location.href='index.html'">Trang chủ</button>
+    <button onclick="logout()">Đăng xuất</button>
+  </div>
+
+  <h2>Admin - Quản lý phòng</h2>
+
+  <h3 id="formTitle">Thêm phòng mới</h3>
+
+  <input type="hidden" id="roomId">
+  <input id="roomNumber" placeholder="Số phòng">
+  <input id="capacity" type="number" placeholder="Sức chứa">
+
+  <select id="roomType"></select>
+
+  <select id="status">
+    <option value="AVAILABLE">AVAILABLE</option>
+    <option value="MAINTAIN">MAINTAIN</option>
+  </select>
+
+  <button id="btnCreate" onclick="createRoom()">➕ Tạo phòng</button>
+  <button id="btnUpdate" onclick="updateRoom()" style="display:none;">💾 Cập nhật</button>
+  <button id="btnCancel" onclick="resetForm()" style="display:none;">❌ Hủy</button>
+
+  <hr>
+
+  <h3>Danh sách phòng</h3>
+  <div id="roomList"></div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/admin-rooms.js"></script>
+</body>
+</html>

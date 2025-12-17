@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Hotel Booking System</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>Hotel Booking System</h2>
+
+  <button onclick="location.href='login.html'">Đăng nhập</button>
+  <button onclick="location.href='register.html'">Đăng ký</button>
+  <button onclick="location.href='search.html'">Tìm phòng</button>
+  <button id="adminBtn" onclick="location.href='admin-rooms.html'">
+  Admin - Quản lý phòng
+</button>
+
+<script>
+  const role = localStorage.getItem('role');
+  if (role !== 'ADMIN') {
+    document.getElementById('adminBtn').style.display = 'none';
+  }
+</script>
+
+</div>
+
+</body>
+</html>

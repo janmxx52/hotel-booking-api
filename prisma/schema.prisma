@@ -4,6 +4,7 @@ generator client {
 
 datasource db {
   provider = "mysql"
+  url      = env("DATABASE_URL")
 }
 
 
@@ -28,16 +29,18 @@ model RoomType {
 }
 
 model Room {
-  id           Int       @id @default(autoincrement())
-  roomNumber   String    @unique @db.VarChar(20)
-  capacity     Int
-  status       String    @default("AVAILABLE") @db.VarChar(20)
+  id         Int      @id @default(autoincrement())
+  roomNumber String   @unique @db.VarChar(20)
+  capacity   Int
+  status     String   @default("AVAILABLE") @db.VarChar(20)
+  isActive   Boolean  @default(true)
 
-  roomTypeId   Int
-  roomType     RoomType  @relation(fields: [roomTypeId], references: [id])
+  roomTypeId Int
+  roomType   RoomType @relation(fields: [roomTypeId], references: [id])
 
-  bookings     Booking[]
+  bookings   Booking[]
 }
+
 
 model Booking {
   id          Int       @id @default(autoincrement())

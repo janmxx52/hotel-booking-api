@@ -1,0 +1,42 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+}
+
+.container {
+  width: 450px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 6px;
+}
+
+input, select, button {
+  width: 100%;
+  margin: 6px 0;
+  padding: 8px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.room {
+  border-bottom: 1px solid #ddd;
+  padding: 8px 0;
+}
+.room {
+  border: 1px solid #ddd;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+}
+.room button {
+  margin-top: 8px;
+}
